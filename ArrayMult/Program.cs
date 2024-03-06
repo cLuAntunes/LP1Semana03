@@ -18,6 +18,20 @@ namespace ArrayMult
             b[0] = float.Parse(args[4]);
             b[1] = float.Parse(args[5]);
             
+            float[] result = new float[2];
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {           
+                    result[i] += A[i, j] * b[j];
+                }
+                
+            }
+
+            Console.WriteLine(result[0]);
+            Console.WriteLine(result[1]);
+
         }
     }
 }

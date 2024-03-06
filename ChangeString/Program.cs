@@ -6,8 +6,11 @@ namespace ChangeString
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Insira uma string: ");
+            Console.WriteLine("String: ");
             string x = Console.ReadLine();
+
+            Console.WriteLine("Caráter: ");
+            char replace = Console.ReadKey().KeyChar;
         }
     }
 }

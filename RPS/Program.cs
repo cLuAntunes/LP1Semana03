@@ -27,7 +27,7 @@ namespace RPS
             {
                 return 0; // Draw
             }
-            if (((player1 == "Rock") && (player2 == "Scissors")) ||
+            else if (((player1 == "Rock") && (player2 == "Scissors")) ||
                 ((player1 == "Scissors") && (player2 == "Paper")) ||
                 ((player1 == "Paper") && (player2 == "Rock")))
             {

@@ -4,38 +4,42 @@ namespace RPS
 {
     class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
-            int result = RockPaperScissors(args[0], args[1]);
+            GameItem p1 = (GameItem)Enum.Parse(typeof(GameItem), args[0]);
+            GameItem p2 = (GameItem)Enum.Parse(typeof(GameItem), args[1]);
+
+            GameStatus result = RockPaperScissors(p1, p2);
+
             switch (result)
             {
-                case 0:
+                case GameStatus.Draw:
                     Console.WriteLine("It's a draw!");
                     break;
-                case 1:
+                case GameStatus.Player1Wins:
                     Console.WriteLine("Player 1 wins!");
                     break;
-                case 2:
+                case GameStatus.Player2Wins:
                     Console.WriteLine("Player 2 wins!");
                     break;
             }
         }
 
-        private static int RockPaperScissors(string player1, string player2)
+        private static GameStatus RockPaperScissors(GameItem p1, GameItem p2)
         {
-            if (player1 == player2)
+            if (p1 == p2)
             {
-                return 0; // Draw
+                return GameStatus.Draw;
             }
-            else if (((player1 == "Rock") && (player2 == "Scissors")) ||
-                ((player1 == "Scissors") && (player2 == "Paper")) ||
-                ((player1 == "Paper") && (player2 == "Rock")))
+            else if (((p1 == GameItem.Rock) && (p2 == GameItem.Scissors)) ||
+                     ((p1 == GameItem.Scissors) && (p2 == GameItem.Paper)) ||
+                     ((p1 == GameItem.Paper) && (p2 == GameItem.Rock)))
             {
-                return 1; // Player 1 wins
+                return GameStatus.Player1Wins;
             }
             else
             {
-                return 2; // Player 2 wins
+                return GameStatus.Player2Wins;
             }
         }
     }
